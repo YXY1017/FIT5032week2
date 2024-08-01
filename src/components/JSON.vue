@@ -10,7 +10,7 @@
       <h3>Iterating through Arrays</h3>
       <!-- Activity 6: Render a list containing author names and their birth years. Hint: Make use of the v-for directive to iterate through the array of authors. -->
       <ul>
-        <li v-for="author in authors" :key="author.id">
+        <li v-for="author in authors" :key="author.id" :class="{highlight: author.name === 'George Orwell'}">
           {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -19,7 +19,7 @@
       <!-- Activity 7: Render a list containing authors born after 1850. Hint: Make use of the v-for directive to iterate through the array of authors that you have filtered out. -->
       <p>Authors born after 1850:</p>
       <ul>
-        <li v-for="author in modernAuthors" :key="author.id">
+        <li v-for="author in modernAuthors" :key="author.id" :class="{highlight: author.name === 'George Orwell'}">
           {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -108,7 +108,7 @@
 
       <!-- TODO: CODE TO TOGGLE MESSAGE VISIBILITY HERE. Hint: Use the v-if directive. -->
       <button @click="showMessage = !showMessage">Toggle Message</button>
-      <p class="message success">✨ You're a Vue superstar! ✨</p>
+      <p class="message success" v-if="showMessage">✨ You're a Vue superstar! ✨</p>
       <p>Click the button to see a message.</p>
     </section>
 
